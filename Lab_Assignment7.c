@@ -30,6 +30,7 @@ void OutputArr(int arr[], int size, int totalswap){
 
 void SelectSort(int Array[], int n){
     int i, j, min;
+    int Total;
     for(i = 0; i < n-1; i++){
         min = i;
         for(j = 0; j < n; j++){
@@ -38,9 +39,11 @@ void SelectSort(int Array[], int n){
             }
             if (min != i){
                 SwapS(Array, Array[min], Array[i]);
+                Total +=1;
             }
         }
     }
+    OutputArr(Array, n, Total);
 }
 
 void BubbleSort(int Array[], int n){
@@ -55,10 +58,7 @@ void BubbleSort(int Array[], int n){
             }
         }
     }
-    if(Array[0] == 7)
-        OutputArr(Array, n, SwapNum);
-    if(Array[0] == 10)
-        OutputArr(Array, n, SwapNum);
+    OutputArr(Array, n, SwapNum);
 }
 
 int main(){
@@ -68,4 +68,6 @@ int main(){
     int size2 = sizeof(array2);
     BubbleSort(array1, size1);
     BubbleSort(array2, size2);
+    SelectSort(array1, size1);
+    SelectSort(array2, size2);
 }
